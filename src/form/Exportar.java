@@ -111,9 +111,9 @@ public class Exportar {
             
             switch(ds){
                 
-                case ':':
-                case '!':
-                case '?':
+                case '(':
+                case '{':
+                case '[':
                 txt += ds;
                 place = true;
                 if(!metatag){letter = true;}
@@ -180,12 +180,17 @@ public class Exportar {
                     }
                 break;
                 
-                default:
+                case '\\':
+                case '/':
+                txt += "<br/>";
+                place = false;
+                if(!metatag){letter = true;}
+                break;
                 
+                default:
                 txt += ds;
                 place = false;
                 if(!metatag){letter = true;}
-                
                 break;
                 
             }
@@ -418,58 +423,35 @@ public class Exportar {
             
             doc.add("");
             
+            doc.add("<!-- " + footer + " --");
+            
             for(int x = 0; x < this.code.Tot(); x++){
+                
+                doc.add(Number(x) + " de " + this.code.Tot());
                 
                 String tx = "";
                 
-                if(x == 0){
-                    tx += "<!--";
-                } else {
-                    tx += "<hr/>\n";
-                }
-                
-                tx += "<h1>";
-                tx += Number(x);
-                tx += " de ";
-                tx += this.code.Tot();
-                tx += "</h1>\n";
-                
                 for(int y = 0; y < this.code.Tot(x); y++){
                     
-                    boolean g = (y == 0);
-                    boolean p = (y == 1);
-                    
-                    if(g){
-                        
-                        tx += "<hr/>\n<h2>";
-                        
+                    if(y > 0){
+                        tx += ";";
                     }
                     
-                    if(p){
-                        tx += "<p>";
-                    }
-                    
-                    if(y > 1){
-                        tx += "<br/>";
-                    }
-                    
-                    tx += Tag(this.code.Read(x, y));
-                    
-                    if(g){
-                        tx += "</h2>";
-                    }
+                    tx += this.code.Read(x, y);
                     
                 }
-                
-                tx += "</p>\n";
                 
                 doc.add(tx);
                 
+                if(this.code.Tot(x) > 1){
+                    doc.add("(" + this.code.Tot(x) + ") linhas");
+                }
+                
+                doc.add("");
+                
             }
             
-            doc.add("");
-            
-            doc.add("<!-- " + footer + " -->");
+            doc.add("-- " + footer + " -->");
             
             if(this.tag){
                 
