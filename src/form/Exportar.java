@@ -50,7 +50,7 @@ public class Exportar {
         
     }
     
-    private String Tag(String dig){
+    /*private String Tag(String dig){
         
         String txt = "";
         
@@ -91,7 +91,7 @@ public class Exportar {
 
         return txt;
 
-    }
+    }/*Tag(String dig)*/
     
     private String T(String dig){
         
@@ -409,25 +409,24 @@ public class Exportar {
                     
                 }
                 
-                doc.add(tx + "<div class=\"divide\"></div></div><!-- " + 
+                doc.add(tx + "<div class=\"divide\"></div></div>");
+                
+                doc.add("<!-- " + 
                         Number(x) + 
                         " de " + 
                         this.code.Tot() + " -->");
+                
                 doc.add("");
                 
             }
-            
-            doc.add("");
             
             doc.add("<p class=\"ended\"></p>");
             
             doc.add("");
             
-            doc.add("<!-- " + footer + " --");
+            doc.add("<!-- \"" + find + "\"");
             
             for(int x = 0; x < this.code.Tot(); x++){
-                
-                doc.add(Number(x) + " de " + this.code.Tot());
                 
                 String tx = "";
                 
@@ -443,13 +442,9 @@ public class Exportar {
                 
                 doc.add(tx);
                 
-                if(this.code.Tot(x) > 1){
-                    doc.add("(" + this.code.Tot(x) + ") linhas");
-                }
-                
-                doc.add("");
-                
             }
+            
+            doc.add("");
             
             doc.add("-- " + footer + " -->");
             
