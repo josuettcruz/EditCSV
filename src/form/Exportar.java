@@ -111,9 +111,10 @@ public class Exportar {
             
             switch(ds){
                 
-                case '(':
-                case '{':
-                case '[':
+                case ')':
+                case '}':
+                case ']':
+                case '.':
                 txt += ds;
                 place = true;
                 if(!metatag){letter = true;}
@@ -209,9 +210,9 @@ public class Exportar {
             
         }
 
-        return txt.replace(" | ", "<br/>").replaceAll(" - ", "<br/>");
+        return txt.replace(" | ", "<br/>");
 
-    }
+    }//T(String dig)
     
     private String P(String paragraphy){
         
@@ -229,7 +230,7 @@ public class Exportar {
         
         }
         
-    }
+    }//P(String paragraphy)
     
     private String P(String paragraphy, String link){
         
@@ -256,7 +257,7 @@ public class Exportar {
         
         return txt;
         
-    }
+    }//P(String paragraphy, String link)
     
     public void Export(String title,String footer, String find){
         
@@ -373,7 +374,7 @@ public class Exportar {
                         tx += this.code.Read(x, 0).replace(" | ", "<br/>");
                         tx += "</h1>";
                         
-                    } else {
+                    } else {//if(y == 0)
                         
                         if(c.Link(this.code.Read(x, y))){
                             
@@ -383,31 +384,31 @@ public class Exportar {
                                 
                                 tx += P(this.code.Read(x, y),this.code.Read(x, y));
                                 
-                            } else {
+                            } else {//if(c.Link(this.code.Read(x, y-1)))
                                 
                                 tx += P(this.code.Read(x, y-1),this.code.Read(x, y));
                                 
-                            }
+                            }//if(c.Link(this.code.Read(x, y-1)))
                             
-                        } else if(y == this.code.Tot(x)-1){
+                        } else if(y == this.code.Tot(x)-1){//if(c.Link(this.code.Read(x, y)))
                             
                             tx += "<div class=\"space\"></div>";
                             tx += P(this.code.Read(x, y));
                             
-                        } else {
+                        } else {//if(c.Link(this.code.Read(x, y)))
                             
                             if(!c.Link(this.code.Read(x, y+1))){
                                 
                                 tx += "<div class=\"space\"></div>";
                                 tx += P(this.code.Read(x, y));
                                 
-                            }
+                            }//if(!c.Link(this.code.Read(x, y+1)))
                             
-                        }
+                        }//if(c.Link(this.code.Read(x, y)))
                         
-                    }
+                    }//if(y == 0)
                     
-                }
+                }//for(int y = 0; y < this.code.Tot(x); y++)
                 
                 doc.add(tx + "<div class=\"divide\"></div></div>");
                 
@@ -418,7 +419,7 @@ public class Exportar {
                 
                 doc.add("");
                 
-            }
+            }//for(int x = 0; x < this.code.Tot(); x++)
             
             doc.add("<p class=\"ended\"></p>");
             
@@ -438,11 +439,11 @@ public class Exportar {
                     
                     tx += this.code.Read(x, y);
                     
-                }
+                }//for(int y = 0; y < this.code.Tot(x); y++)
                 
                 doc.add(tx);
                 
-            }
+            }//for(int x = 0; x < this.code.Tot(); x++)
             
             doc.add("");
             
@@ -468,13 +469,13 @@ public class Exportar {
                 doc.add("</script>");
                 doc.add("");
                 
-            }
+            }//if(this.tag)
             
-        } else {
+        } else {//if(cd)
             
             doc.add("<div class=\"txt\">" + find + "</div>");
             
-        }
+        }//if(cd)
         
         doc.add("");
         doc.add("</body>");
