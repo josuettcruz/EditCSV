@@ -36,6 +36,7 @@ public class Tube extends javax.swing.JFrame {
         
         setTitle("YouTube");
         setLocation(Location.x,Location.y);
+        setResizable(true);
         
         mais.setEnabled(this.doc.Tot() > 1);
         menos.setEnabled(this.doc.Tot() > 1);
@@ -368,6 +369,10 @@ public class Tube extends javax.swing.JFrame {
     
     private void KeyRelease(){
         
+        if(txt.getText().contains("\t")){
+            txt.setText(txt.getText().replaceAll("\t", ""));
+        }
+        
         boolean t0 = title.getText().trim().isBlank();
         boolean t1 = vcr.getText().trim().isBlank();
         boolean t2 = lnk.getText().trim().isBlank();
@@ -569,6 +574,9 @@ public class Tube extends javax.swing.JFrame {
         txt.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txt.setRows(5);
         txt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtKeyReleased(evt);
             }
@@ -630,33 +638,30 @@ public class Tube extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(title)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(save)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(menos, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(select, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(select, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(mais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(mais)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(find))
                     .addComponent(video1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(video, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(video, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addComponent(title, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -675,7 +680,7 @@ public class Tube extends javax.swing.JFrame {
                     .addComponent(find)
                     .addComponent(menos)
                     .addComponent(mais)
-                    .addComponent(select))
+                    .addComponent(select, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -767,7 +772,9 @@ public class Tube extends javax.swing.JFrame {
         switch(evt.getKeyCode()){
             
             case 10 ->{
+                
                 Save();
+                
             }
             
             case 38 ->{
@@ -815,16 +822,56 @@ public class Tube extends javax.swing.JFrame {
         switch(evt.getKeyCode()){
             
             case 10 ->{
+                
                 Save();
+                
             }
             
             case 38 ->{
+                
                 vch.requestFocus();
+                
+            }
+            
+            case 40 ->{
+                
+                if(!txt.getText().contains("\n")){
+                    txt.requestFocus();
+                }
+                
             }
             
         }//switch(evt.getKeyCode())
         
     }//GEN-LAST:event_lchKeyPressed
+
+    private void txtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtKeyPressed
+        
+        switch(evt.getKeyCode()){
+            
+            case 9 ->{
+                
+                title.requestFocus();
+                
+            }//case 9
+            
+            case 38 ->{
+                
+                if(!txt.getText().contains("\n")){
+                    lch.requestFocus();
+                }
+                
+            }//case 9
+            
+            case 12 ->{
+                
+                Save();
+                
+            }//case 12
+            
+        }//switch(evt.getKeyCode())
+        
+    }//GEN-LAST:event_txtKeyPressed
 
     /**
      * @param args the command line arguments

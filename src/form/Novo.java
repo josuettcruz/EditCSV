@@ -23,6 +23,7 @@ public class Novo extends javax.swing.JFrame {
     public void Enter(){
         
         setVisible(true);
+        setResizable(false);
         
         setTitle("Novo arquivo");
         setLocation(Location.x,Location.y);

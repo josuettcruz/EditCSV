@@ -36,6 +36,7 @@ public class Text extends javax.swing.JFrame {
         
         setTitle("Texto");
         setLocation(Location.x,Location.y);
+        setResizable(false);
         
         mais.setEnabled(this.doc.Tot() > 1);
         menos.setEnabled(this.doc.Tot() > 1);
@@ -283,6 +284,10 @@ public class Text extends javax.swing.JFrame {
     
     private void KeyRelease(){
         
+        if(txt.getText().contains("\t")){
+            txt.setText(txt.getText().replaceAll("\t", ""));
+        }
+        
         boolean t0 = title.getText().trim().isBlank();
         boolean t5 = txt.getText().trim().isBlank();
         
@@ -348,6 +353,9 @@ public class Text extends javax.swing.JFrame {
         txt.setColumns(20);
         txt.setRows(5);
         txt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtKeyReleased(evt);
             }
@@ -406,9 +414,9 @@ public class Text extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(menos)
                         .addGap(14, 14, 14)
-                        .addComponent(select, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(select, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(mais, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
+                        .addComponent(mais, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(find)))
                 .addContainerGap())
@@ -462,10 +470,58 @@ public class Text extends javax.swing.JFrame {
     }//GEN-LAST:event_txtKeyReleased
 
     private void titleKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_titleKeyPressed
-        if(evt.getKeyCode() == 10){
+        
+        /*if(evt.getKeyCode() == 10){
             Save();
-        }
+        }*/
+        
+        switch(evt.getKeyCode()){
+            
+            case 10 ->{
+                
+                Save();
+                
+            }
+            
+            case 40 ->{
+                
+                if(!txt.getText().contains("\n")){
+                    txt.requestFocus();
+                }
+                
+            }
+            
+        }//switch(evt.getKeyCode())
+        
     }//GEN-LAST:event_titleKeyPressed
+
+    private void txtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtKeyPressed
+        
+        switch(evt.getKeyCode()){
+            
+            case 9 ->{
+                
+                title.requestFocus();
+                
+            }//case 9
+            
+            case 38 ->{
+                
+                if(!txt.getText().contains("\n")){
+                    title.requestFocus();
+                }
+                
+            }//case 9
+            
+            case 12 ->{
+                
+                Save();
+                
+            }//case 12
+            
+        }//switch(evt.getKeyCode())
+        
+    }//GEN-LAST:event_txtKeyPressed
 
     /**
      * @param args the command line arguments

@@ -169,7 +169,17 @@ public class Exportar {
                 
                 case ' ':
                     
-                    if(place){
+                    if(i == 0){
+                        
+                        txt += "-";
+                        place = false;
+                        
+                    } else if(i == dig.length()-1){
+                        
+                        txt += ".";
+                        place = false;
+                        
+                    } else if(place){
                         
                         txt += "<br/>";
                         place = false;
@@ -179,17 +189,23 @@ public class Exportar {
                         txt += " ";
                         
                     }
+                    
                 break;
                 
                 case '\\':
-                case '/':
                 txt += "<br/>";
                 place = false;
                 if(!metatag){letter = true;}
                 break;
                 
                 default:
-                txt += ds;
+                if(i == 0){
+                    String done = ds + "";
+                    txt += done.toUpperCase();
+                } else {
+                    txt += ds;
+                    
+                }
                 place = false;
                 if(!metatag){letter = true;}
                 break;
@@ -280,18 +296,18 @@ public class Exportar {
             doc.add("a:link{");
             doc.add("  color: inherit;");
             doc.add("  text-decoration: overline;");
-            doc.add("  text-decoration-color: black;");
+            doc.add("  text-decoration-color: rgb(0,0,0);");
             doc.add("}");
             
             doc.add("a:hover{");
             doc.add("  color: inherit;");
-            doc.add("  text-decoration: underline;");
+            doc.add("  text-decoration: overline;");
+            doc.add("  text-decoration-color: rgb(100,100,100);");
             doc.add("}");
             
             doc.add("a:active{");
             doc.add("  color: inherit;");
-            doc.add("  text-decoration: underline;");
-            doc.add("  text-decoration-color: rgb(10,10,10);");
+            doc.add("  text-decoration: none;");
             doc.add("}");
             
             doc.add("a:visited{");

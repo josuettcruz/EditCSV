@@ -4,6 +4,8 @@
  */
 package form;
 
+import file.cod;
+
 /**
  *
  * @author josue
@@ -60,12 +62,20 @@ public class Index extends javax.swing.JFrame {
     private void Enter(boolean exit, String tct){
         
         setVisible(true);
+        setResizable(false);
         
         sair.setEnabled(exit);
         
+        abrir.setEnabled(true);
+        novo.setEnabled(true);
         msg.setEditable(false);
         
-        setTitle("");
+        if(exit){
+            setTitle(new cod().Date(true));
+        } else {
+            setTitle("EditCSV");
+        }
+        
         setLocation(Location.x,Location.y);
         
         if(tct.isBlank()){

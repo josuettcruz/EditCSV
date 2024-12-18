@@ -25,6 +25,7 @@ public class Converter extends javax.swing.JFrame {
     public void Enter(){
         
         setVisible(true);
+        setResizable(false);
         
         setTitle("Converter CSV em HTML");
         setLocation(Location.x,Location.y);

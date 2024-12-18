@@ -26,29 +26,24 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel4" alignment="0" min="-2" pref="62" max="-2" attributes="0"/>
+                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel1" alignment="0" min="-2" pref="62" max="-2" attributes="0"/>
+                  <Component id="title" alignment="0" max="32767" attributes="0"/>
                   <Component id="jScrollPane1" alignment="1" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="save" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="menos" min="-2" pref="83" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="select" min="-2" pref="90" max="-2" attributes="0"/>
+                      <Component id="select" pref="90" max="32767" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="mais" max="32767" attributes="0"/>
+                      <Component id="mais" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="find" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="video1" alignment="0" max="32767" attributes="0"/>
                   <Component id="video" max="32767" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel4" alignment="0" min="-2" pref="62" max="-2" attributes="0"/>
-                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel1" alignment="0" min="-2" pref="62" max="-2" attributes="0"/>
-                          <Component id="title" alignment="0" min="-2" pref="448" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -58,7 +53,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-              <Component id="title" pref="44" max="32767" attributes="0"/>
+              <Component id="title" min="-2" pref="44" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -73,11 +68,11 @@
               <Component id="jScrollPane1" min="-2" pref="180" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="save" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="find" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="menos" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="mais" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="select" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="save" alignment="3" max="-2" attributes="0"/>
+                  <Component id="find" alignment="3" max="-2" attributes="0"/>
+                  <Component id="menos" alignment="3" max="-2" attributes="0"/>
+                  <Component id="mais" alignment="3" max="-2" attributes="0"/>
+                  <Component id="select" alignment="3" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -315,6 +310,7 @@
             <Property name="rows" type="int" value="5"/>
           </Properties>
           <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtKeyPressed"/>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtKeyReleased"/>
           </Events>
         </Component>

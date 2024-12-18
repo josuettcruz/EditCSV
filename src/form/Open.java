@@ -23,6 +23,7 @@ public class Open extends javax.swing.JFrame {
     public void Enter(){
         
         setVisible(true);
+        setResizable(false);
         
         setTitle("Abrir CSV");
         setLocation(Location.x,Location.y);
