@@ -114,6 +114,8 @@ public class Exportar {
                 case ')':
                 case '}':
                 case ']':
+                case '!':
+                case '?':
                 case '.':
                 txt += ds;
                 place = true;
@@ -226,7 +228,7 @@ public class Exportar {
             
         }
 
-        return txt.replaceAll(". | ", ".<br/>").replaceAll(" | ", "<br/>");
+        return txt.replace("! | ", "!.<br/>").replace("? | ", "?<br/>").replace(". | ", ".<br/>").replace(" | ", "<br/>");
 
     }//T(String dig)
     
