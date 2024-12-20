@@ -69,11 +69,12 @@ public class Index extends javax.swing.JFrame {
         abrir.setEnabled(true);
         novo.setEnabled(true);
         msg.setEditable(false);
+        msg.setVisible(true);
         
         if(exit){
             setTitle(new cod().Date(true));
         } else {
-            setTitle("EditCSV");
+            setTitle(new cod().Date());
         }
         
         setLocation(Location.x,Location.y);
@@ -86,7 +87,7 @@ public class Index extends javax.swing.JFrame {
         } else {
             
             msg.setVisible(true);
-            msg.setText(Text(tct,110));
+            msg.setText(Text(tct,95));
             
         }//if(tct.isBlank())
         
@@ -124,6 +125,7 @@ public class Index extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        abrir.setBackground(new java.awt.Color(0, 204, 204));
         abrir.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
         abrir.setText("Abrir");
         abrir.addActionListener(new java.awt.event.ActionListener() {
@@ -132,6 +134,7 @@ public class Index extends javax.swing.JFrame {
             }
         });
 
+        novo.setBackground(new java.awt.Color(0, 204, 204));
         novo.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
         novo.setText("Novo");
         novo.addActionListener(new java.awt.event.ActionListener() {
@@ -140,15 +143,18 @@ public class Index extends javax.swing.JFrame {
             }
         });
 
+        converter.setBackground(new java.awt.Color(0, 204, 204));
         converter.setFont(new java.awt.Font("Impact", 0, 36)); // NOI18N
-        converter.setText("CONVERTER (.HTM)");
+        converter.setText("CONVERTER");
         converter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 converterActionPerformed(evt);
             }
         });
 
+        sair.setBackground(new java.awt.Color(0, 204, 204));
         sair.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
+        sair.setForeground(java.awt.Color.red);
         sair.setText("Sair");
         sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,7 +163,7 @@ public class Index extends javax.swing.JFrame {
         });
 
         msg.setColumns(20);
-        msg.setFont(new java.awt.Font("Agency FB", 0, 12)); // NOI18N
+        msg.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         msg.setRows(5);
         jScrollPane1.setViewportView(msg);
 
@@ -168,27 +174,27 @@ public class Index extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(abrir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(novo, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE)
-                    .addComponent(converter, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE)
-                    .addComponent(sair, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1))
+                    .addComponent(jScrollPane1)
+                    .addComponent(abrir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(converter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(sair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(abrir, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(novo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addComponent(converter, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(abrir, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(novo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(sair, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();

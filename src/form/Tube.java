@@ -217,7 +217,7 @@ public class Tube extends javax.swing.JFrame {
                     
                     if(!op.isBlank()){
                         
-                        connect.add(op.trim());
+                        connect.add(op.trim().replaceAll("\t", ""));
                         
                     }//if(!op.isBlank())
                     
@@ -225,7 +225,7 @@ public class Tube extends javax.swing.JFrame {
                 
             } else {//if(obs.contains("\n"))
                 
-                connect.add(obs.trim());
+                connect.add(obs.trim().replaceAll("\t", ""));
                 
             }//if(obs.contains("\n"))
             

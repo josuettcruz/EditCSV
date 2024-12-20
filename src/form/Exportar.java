@@ -226,7 +226,7 @@ public class Exportar {
             
         }
 
-        return txt.replace(" | ", "<br/>");
+        return txt.replaceAll(". | ", ".<br/>").replaceAll(" | ", "<br/>");
 
     }//T(String dig)
     
@@ -293,71 +293,87 @@ public class Exportar {
         
         if(cd){
             
-            doc.add("a:link{");
-            doc.add("  color: inherit;");
-            doc.add("  text-decoration: overline;");
-            doc.add("  text-decoration-color: rgb(0,0,0);");
-            doc.add("}");
+            doc.add("   a:link{");
+            doc.add("      color: inherit;");
+            doc.add("      text-decoration: overline;");
+            doc.add("      text-decoration-color: rgb(0,0,0);");
+            doc.add("   }");
             
-            doc.add("a:hover{");
-            doc.add("  color: inherit;");
-            doc.add("  text-decoration: overline;");
-            doc.add("  text-decoration-color: rgb(100,100,100);");
-            doc.add("}");
+            doc.add("   ");
             
-            doc.add("a:active{");
-            doc.add("  color: inherit;");
-            doc.add("  text-decoration: none;");
-            doc.add("}");
+            doc.add("   a:hover{");
+            doc.add("     color: inherit;");
+            doc.add("     text-decoration: overline;");
+            doc.add("     text-decoration-color: rgb(100,100,100);");
+            doc.add("   }");
             
-            doc.add("a:visited{");
-            doc.add("  color: inherit;");
-            doc.add("  text-decoration: overline;");
-            doc.add("  text-decoration-color: rgb(100,100,100);");
-            doc.add("}");
+            doc.add("   ");
             
-            doc.add("div.txt{");
-            doc.add("  margin-left:5%;");
-            doc.add("  margin-top:10%;");
-            doc.add("  width:90%;");
-            doc.add("  border: 5px solid black;");
-            doc.add("  background-color:whitesmoke;");
-            doc.add("  min-height:100px;");
-            doc.add("  overflow-y:visible;");
-            doc.add("}");
+            doc.add("   a:active{");
+            doc.add("      color: inherit;");
+            doc.add("      text-decoration: none;");
+            doc.add("   }");
             
-            doc.add("div.space{");
-            doc.add("  width:100%;");
-            doc.add("  height:2px;");
-            doc.add("  background-color:black;");
-            doc.add("}");
+            doc.add("   ");
             
-            doc.add("h1.tema{");
-            doc.add("  color:black;");
-            doc.add("  margin-left:2.5%;");
-            doc.add("  font-size:calc(10px + 2vw);");
-            doc.add("}");
+            doc.add("   a:visited{");
+            doc.add("      color: inherit;");
+            doc.add("      text-decoration: overline;");
+            doc.add("      text-decoration-color: rgb(100,100,100);");
+            doc.add("   }");
             
-            doc.add("p.texto{");
-            doc.add("  color:black;");
-            doc.add("  font-weight: bold;");
-            doc.add("  margin-top:10px;");
-            doc.add("  margin-left:2%;");
-            doc.add("  margin-right:1%;");
-            doc.add("  font-size:calc(10px + 1vw);");
-            doc.add("  word-wrap: break-word;");
-            doc.add("  line-height:2em;");
-            doc.add("}");
+            doc.add("   ");
             
-            doc.add("div.divide{");
-            doc.add("  width:100%;");
-            doc.add("  height:20px;");
-            doc.add("  background-color:rgba(0, 0, 0, .01);");
-            doc.add("}");
+            doc.add("   div.txt{");
+            doc.add("      margin-left:5%;");
+            doc.add("      margin-top:10%;");
+            doc.add("      width:90%;");
+            doc.add("      border: 5px solid black;");
+            doc.add("      background-color:whitesmoke;");
+            doc.add("      min-height:100px;");
+            doc.add("      overflow-y:visible;");
+            doc.add("   }");
             
-            doc.add("p.ended{");
-            doc.add("  padding:50px;");
-            doc.add("}");
+            doc.add("   ");
+            
+            doc.add("   div.space{");
+            doc.add("      width:100%;");
+            doc.add("      height:2px;");
+            doc.add("      background-color:black;");
+            doc.add("   }");
+            
+            doc.add("   h1.tema{");
+            doc.add("      color:black;");
+            doc.add("      margin-left:2.5%;");
+            doc.add("      font-size:calc(10px + 2vw);");
+            doc.add("   }");
+            
+            doc.add("   ");
+            
+            doc.add("   p.texto{");
+            doc.add("      color:black;");
+            doc.add("      font-weight: bold;");
+            doc.add("      margin-top:10px;");
+            doc.add("      margin-left:2%;");
+            doc.add("      margin-right:1%;");
+            doc.add("      font-size:calc(10px + 1vw);");
+            doc.add("      word-wrap: break-word;");
+            doc.add("      line-height:2em;");
+            doc.add("   }");
+            
+            doc.add("   ");
+            
+            doc.add("   div.divide{");
+            doc.add("      width:100%;");
+            doc.add("      height:20px;");
+            doc.add("      background-color:rgba(0, 0, 0, .01);");
+            doc.add("   }");
+            
+            doc.add("   ");
+            
+            doc.add("   p.ended{");
+            doc.add("      padding:50px;");
+            doc.add("   }");
             
         } else {
             
@@ -374,7 +390,7 @@ public class Exportar {
         doc.add("<body>");
         doc.add("");
         
-        if(cd){
+        if(cd){//if(cd) - 1
             
             for(int x = 0; x < this.code.Tot(); x++){
                 
@@ -439,9 +455,41 @@ public class Exportar {
             
             doc.add("<p class=\"ended\"></p>");
             
+            if(this.tag){
+                
+                doc.add("");
+                doc.add("<script>");
+                doc.add("   ");
+                doc.add("   const metatag = document.getElementsByTagName(\"span\");");
+                doc.add("   ");
+                doc.add("   for(var i = 0; i < metatag.length; i++){");
+                doc.add("      ");
+                doc.add("      metatag[i].innerText = \"<\" + metatag[i].innerHTML + \">\";");
+                doc.add("      metatag[i].style.fontWeight = \"normal\";");
+                doc.add("      metatag[i].style.fontFamily = \"Arial Narrow\";");
+                doc.add("      metatag[i].style.letterSpacing = \"1%\";");
+                doc.add("      ");
+                doc.add("   }");
+                doc.add("   ");
+                doc.add("</script>");
+                
+            }//if(this.tag)
+            
+        } else {//if(cd) - 1
+            
+            doc.add("<div class=\"txt\">" + find + "</div>");
+            
+        }//if(cd) - 1
+        
+        doc.add("");
+        doc.add("</body>");
+        doc.add("</html>");
+        
+        if(cd){//if(cd) - 2
+            
             doc.add("");
             
-            doc.add("<!-- \"" + find + "\"");
+            doc.add("<!-- " + footer + " --");
             
             for(int x = 0; x < this.code.Tot(); x++){
                 
@@ -461,41 +509,7 @@ public class Exportar {
                 
             }//for(int x = 0; x < this.code.Tot(); x++)
             
-            doc.add("");
-            
-            doc.add("-- " + footer + " -->");
-            
-            if(this.tag){
-                
-                doc.add("");
-                doc.add("");
-                doc.add("<script>");
-                doc.add("");
-                doc.add("    const metatag = document.getElementsByTagName(\"span\");");
-                doc.add("");
-                doc.add("    for(var i = 0; i < metatag.length; i++){");
-                doc.add("");
-                doc.add("        metatag[i].innerText = \"<\" + metatag[i].innerHTML + \">\";");
-                doc.add("        metatag[i].style.fontWeight = \"normal\";");
-                doc.add("        metatag[i].style.fontFamily = \"Arial Narrow\";");
-                doc.add("        metatag[i].style.letterSpacing = \"1%\";");
-                doc.add("");
-                doc.add("    }");
-                doc.add("");
-                doc.add("</script>");
-                doc.add("");
-                
-            }//if(this.tag)
-            
-        } else {//if(cd)
-            
-            doc.add("<div class=\"txt\">" + find + "</div>");
-            
-        }//if(cd)
-        
-        doc.add("");
-        doc.add("</body>");
-        doc.add("</html>");
+        }//if(cd) - 2
         
         cod cod = new cod();
         

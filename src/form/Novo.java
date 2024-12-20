@@ -81,9 +81,11 @@ public class Novo extends javax.swing.JFrame {
         tube = new javax.swing.JButton();
         txt = new javax.swing.JButton();
         cancel = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        tube.setBackground(java.awt.Color.red);
         tube.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
         tube.setText("YouTube");
         tube.addActionListener(new java.awt.event.ActionListener() {
@@ -92,8 +94,9 @@ public class Novo extends javax.swing.JFrame {
             }
         });
 
+        txt.setBackground(new java.awt.Color(0, 204, 204));
         txt.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
-        txt.setText("Text");
+        txt.setText("TEXTO");
         txt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtActionPerformed(evt);
@@ -101,10 +104,20 @@ public class Novo extends javax.swing.JFrame {
         });
 
         cancel.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
-        cancel.setText("Voltar");
+        cancel.setForeground(java.awt.Color.blue);
+        cancel.setText("VOLTAR");
         cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelActionPerformed(evt);
+            }
+        });
+
+        jButton1.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
+        jButton1.setForeground(java.awt.Color.red);
+        jButton1.setText("SAIR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -114,10 +127,11 @@ public class Novo extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tube, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(tube, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
+                    .addComponent(txt, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
+                    .addComponent(cancel, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -129,7 +143,9 @@ public class Novo extends javax.swing.JFrame {
                 .addComponent(txt, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
         );
 
         pack();
@@ -151,6 +167,10 @@ public class Novo extends javax.swing.JFrame {
         volta.Enter(true);
         
     }//GEN-LAST:event_cancelActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -189,6 +209,7 @@ public class Novo extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancel;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton tube;
     private javax.swing.JButton txt;
     // End of variables declaration//GEN-END:variables
