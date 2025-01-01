@@ -201,7 +201,7 @@ public class Exportar {
                 break;
                 
                 default:
-                if(i == 0){
+                if(i == 0 && dig.contains(" ")){
                     String done = ds + "";
                     txt += done.toUpperCase();
                 } else {
@@ -285,9 +285,17 @@ public class Exportar {
         
         boolean cd = this.code.Tot() > 0;
         
+        String select_title;
+        
+        if(find.length() <= 20 && !find.contains(" ")){
+            select_title = find;
+        } else {
+            select_title = title;
+        }
+        
         doc.add("<html>");
         doc.add("<head>");
-        doc.add("<title>" + title + "</title>");
+        doc.add("<title>" + select_title + "</title>");
         doc.add("<meta charset=\"utf-8\" />");
         doc.add("<!--<link rel=\"icon\" href=\"pasta\\arquivo.ico\" type=\"image/x-icon\">-->");
         doc.add("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
