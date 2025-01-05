@@ -25,14 +25,14 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="novo" pref="386" max="32767" attributes="0"/>
-                  <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="converter" max="32767" attributes="0"/>
                   <Component id="abrir" alignment="0" max="32767" attributes="0"/>
-                  <Component id="converter" alignment="0" max="32767" attributes="0"/>
-                  <Component id="sair" alignment="0" max="32767" attributes="0"/>
+                  <Component id="novo" alignment="0" max="32767" attributes="0"/>
+                  <Component id="sair" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" alignment="0" pref="626" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="31" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

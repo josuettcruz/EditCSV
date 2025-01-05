@@ -5,6 +5,8 @@
 package form;
 
 import file.cod;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 /**
  *
@@ -59,6 +61,170 @@ public class Index extends javax.swing.JFrame {
         
     }//Text(String dig, int max)
     
+    private String DataCompleta(){
+        
+        int a = LocalDate.now().getYear();
+        int m = LocalDate.now().getMonthValue();
+        int d = LocalDate.now().getDayOfMonth();
+        int s = LocalDate.now().getDayOfWeek().getValue();
+        
+        String txt = "";
+        
+        final String comp[] = {"Bom Dia", "Boa Tarde", "Boa Noite"};
+        
+        if(LocalTime.now().getHour() < 12){
+            txt = comp[0];
+        } else if(LocalTime.now().getHour() < 18){
+            txt = comp[1];
+        } else if(LocalTime.now().getHour() > 18){
+            txt = comp[2];
+        } else if(LocalTime.now().getMinute() <= 30){
+            txt = comp[1];
+        } else {
+            txt = comp[2];
+        }
+        
+        txt += ", hoje é dia ";
+        
+        switch(s){
+            
+            case 1 ->{
+                txt += "Segunda";
+            }
+            
+            case 2 ->{
+                txt += "Terça";
+            }
+            
+            case 3 ->{
+                txt += "Quarta";
+            }
+            
+            case 4 ->{
+                txt += "Quinta";
+            }
+            
+            case 5 ->{
+                txt += "Sexta";
+            }
+            
+            case 6 ->{
+                txt += "Sábado";
+            }
+            
+            case 7 ->{
+                txt += "Domingo";
+            }
+            
+        }//switch(s)
+        
+        if(s < 6){
+            
+            txt += "-feira";
+            
+        }
+        
+        txt += ", dia ";
+        
+        txt += d;
+        
+        if(d == 1){
+            txt += "º";
+        }
+        
+        txt += " de ";
+        
+        switch(m){
+            
+            case 1 ->{
+                txt += "Janeiro";
+            }
+            
+            case 2 ->{
+                txt += "Fevereiro";
+            }
+            
+            case 3 ->{
+                txt += "Março";
+            }
+            
+            case 4 ->{
+                txt += "Abril";
+            }
+            
+            case 5 ->{
+                txt += "Maio";
+            }
+            
+            case 6 ->{
+                txt += "Junho";
+            }
+            
+            case 7 ->{
+                txt += "Julho";
+            }
+            
+            case 8 ->{
+                txt += "Agosto";
+            }
+            
+            case 9 ->{
+                txt += "Setembro";
+            }
+            
+            case 10 ->{
+                txt += "Outubro";
+            }
+            
+            case 11 ->{
+                txt += "Novembro";
+            }
+            
+            case 12 ->{
+                txt += "Dezembro";
+            }
+            
+        }//switch(m)
+        
+        txt += " de ";
+        
+        txt += a;
+        
+        txt += "!";
+        
+        return txt;
+        
+    }//DataCompleta()
+    
+    public String DataAbreviada(){
+        
+        final String separator = "/";
+        
+        int a = LocalDate.now().getYear();
+        int m = LocalDate.now().getMonthValue();
+        int d = LocalDate.now().getDayOfMonth();
+        
+        String txt = "";
+        
+        if(d < 10){
+            txt += "0";
+        }
+        
+        txt += d;
+        txt += separator;
+        
+        if(m < 10){
+            txt += "0";
+        }
+        
+        txt += m;
+        txt += separator;
+        txt += a;
+        
+        return txt;
+        
+    }//DataAbreviada()
+    
     private void Enter(boolean exit, String tct){
         
         setVisible(true);
@@ -70,11 +236,10 @@ public class Index extends javax.swing.JFrame {
         novo.setEnabled(true);
         msg.setEditable(false);
         msg.setVisible(true);
-        
         if(exit){
-            setTitle(new cod().Date(true));
+            setTitle(DataAbreviada());
         } else {
-            setTitle(new cod().Date());
+            setTitle(DataCompleta());
         }
         
         setLocation(Location.x,Location.y);
@@ -173,13 +338,13 @@ public class Index extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(novo, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1)
-                    .addComponent(abrir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(converter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(sair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(31, Short.MAX_VALUE))
+                    .addComponent(abrir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(novo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(sair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 626, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

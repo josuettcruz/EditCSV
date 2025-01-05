@@ -93,7 +93,9 @@ public class Exportar {
 
     }/*Tag(String dig)*/
     
-    private String T(String dig){
+    private String T(String text){
+        
+        String dig = text.replace(" | ", "\\");
         
         String txt = "";
         
@@ -206,7 +208,6 @@ public class Exportar {
                     txt += done.toUpperCase();
                 } else {
                     txt += ds;
-                    
                 }
                 place = false;
                 if(!metatag){letter = true;}
@@ -228,7 +229,7 @@ public class Exportar {
             
         }
 
-        return txt.replace("! | ", "!.<br/>").replace("? | ", "?<br/>").replace(". | ", ".<br/>").replace(" | ", "<br/>");
+        return txt;
 
     }//T(String dig)
     
